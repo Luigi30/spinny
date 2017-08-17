@@ -1,4 +1,4 @@
-	SECTION OldView,DATA_P
+	SECTION OldView,DATA
 
 ;Data junk goes here
 olddmareq	dc.w	0
@@ -9,7 +9,7 @@ oldadkcon	dc.w	0
 oldview:	dc.l	0
 oldcopper:	dc.l	0
 
-	SECTION Takeover,CODE_P
+	SECTION Takeover,CODE
 
 SystemTakeover:
 	move.l	#CustomBase,a5
