@@ -1,0 +1,5 @@
+add function headers to SampleFuncs.h
+add functions to SampleFuncs.c
+
+add them to the list in StartUp.c
+add them to the list in example.fd. each function starts $6 after the previous one

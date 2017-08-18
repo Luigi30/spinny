@@ -1,0 +1,19 @@
+CC	= m68k-amigaos-gcc
+LD	= m68k-amigaos-ld
+CFLAGS	= -O2 -fstrength-reduce -fomit-frame-pointer -msmall-code -fbaserel -c
+LDFLAGS	= -noixemul -nostartfiles -fbaserel -s
+LDLIBS	=
+
+OBJS	= StartUp.o LibInit.o SampleFuncs.o
+
+example.library: $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LDLIBS)
+
+StartUp.o: StartUp.c
+	$(CC) $(CFLAGS) StartUp.c
+
+LibInit.o: LibInit.c
+	$(CC) $(CFLAGS) LibInit.c
+
+SampleFuncs.o: SampleFuncs.c
+	$(CC) $(CFLAGS) SampleFuncs.c

@@ -1,0 +1,28 @@
+VBCC 0.5 note:
+--------------
+[Patrizio Biancalani <patb@mbox.match.it> ]
+
+I have corrected compiler.h, libinit.h and Startup.c to work with
+VBCC V0.5, too - but I don't know about the previous versions.
+
+The correction isn't very elegant but works. To compile, if you have a make
+utility compatible with the gnu make, you can type:
+
+>make -f makefile.vbcc
+
+In the other case you must do it as follows:
+
+>vc -O2 -+ -sc -DVBCC -c libinit.c
+>vc -O2 -+ -sc -DVBCC -c startup.c
+>vc -O2 -+ -sc -DVBCC -c Samplefuncs.c
+
+(note: you can ignore all eventual warnings)
+
+then:
+
+>vc -nostdlib -lamiga -o example.library libinit.o startup.o samplefuncs.o
+
+
+Note: remember that the include directory must be in the same directory as
+      the modules libinit.c, startup.c and samplefuncs.c.
+

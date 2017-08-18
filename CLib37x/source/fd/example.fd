@@ -1,0 +1,10 @@
+** $VER: matrix.fd 37.4 (8.1.97)
+##base _MatrixBase
+##bias 30
+##public
+InitMatrix44(matrix)(A0)						** 30
+AllocMatrix44()(),								** 36
+AddMatrix44(left,right,dest)(A0/A1/A2),			** 42
+SubMatrix44(left,right,dest)(A0/A1/A2),			** 48
+IdentityMatrix44(matrix)(A0),					** 54
+##end

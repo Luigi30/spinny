@@ -1,0 +1,313 @@
+Short: example.library in 100% C (SAS/Storm/Maxon/GCC/VBCC/DICE/...)
+Type: dev/c
+Uploader: info@ar-kleinert.de
+Author: Andreas R. Kleinert (and a lot of other people - see below)
+
+  example.library V37.34 (22.4.2000)
+
+  An Amiga shared library in 100 % C language - coming with sources.
+
+  Compiler Checklist:        Compiler             Support
+                             -------------------------------
+   (see README.<compiler>    SAS/C 6.5x           yes
+    for more information)    MaxonC 3.x           yes
+                             StormC 2.x           yes
+                             DICE 3.x             yes
+                             GCC 2.7.2.1          yes
+                             vbcc 0.5+            yes
+                             AztecC               (not tested)
+
+  OS Checklist:              Operating System     Support
+                             -------------------------------
+                             Amiga OS 37-40       yes
+                             AROS 1.x             yes (AROS source tree)
+                             MorphOS 0.x 68k emu  yes (68k emulation)
+                             MorphOS 0.x PPC nat  (not yet adjusted)
+
+  Original SAS/C and StormC version (C) 1996-2000 by Andreas R. Kleinert.
+  StormC rework/additions done 1999 by Fredrik Rambris.
+  MaxonC version changes done 1996 by Helmut Hummel and Stephan Rupprecht.
+  GCC version changes done 1997 by Stefan Fuchs and Gunter Nikl.
+  AROS source tree done 1997 by Aaron Digulla.
+  VBCC version changes done 1997 by Patrizio Biancalani and Patrick Burnand.
+  DICE adaptation done 1998 by Patrick Burnand.
+  All rights reserved.
+  ----------------------------------------------------------------------
+  This sample library intends to make Amiga shared library sources
+  compileable with any available Amiga C compiler - without any
+  changes to the source code.
+
+  And maybe in the future also running under any Amiga compatible
+  operating system with any CPU (e.g. AROS <http://www.aros.org>
+  or MorphOS <http://www.morphos.de).
+
+  The first goal seams to be easily done: nearly any noticeable compiler
+  for the Amiga does support generation of libraries by special
+  linker commands and pre-generated object files.
+
+  But when looking into the details, one will find out, that these
+  linker functionality just reduces the influence of the programmer
+  on how his sources are handled, that the pre-generated object
+  files just originally were done in Assembler, and that each compiler
+  does define its own interface definitions and usage rules.
+
+  But as a programmer, it is important to have control over the _complete_
+  source code and to be able to compile it _anywhere_ with only
+  minor changes, even better without any changes.
+
+  Since most Amiga system modules - noticeable Libraries, Devices and
+  Resources - do have startup-modules and other larger parts completely
+  written in Assembler language, the most important task for getting
+  inter-compiler and operating system independant sources in my opinion
+  is, to completely migrate the interfaces to C language (but different
+  to AROS, for example, it is most important, to keep the sources running
+  under the current 68k AmigaOS in the _first_ place - with MorphOS
+  two aspects are to consider: keep 68k libraries compatible with the
+  emulation (any which aren't broken will run) and keep the sources
+  capable of being compiled PPC-native as well).
+
+  This goal basically has been reached already, still missing of
+  course are some of the less Amiga-native compilers and also
+  tests with any kind of "AmigaOS for PowerPC" or other CPUs.
+
+  But since Assembler is nearly as portability-hostile as BCPL _today_
+  we may come quite close to the goal defined above by just moving
+  towards C and making some smart inter-compiler #defines.
+
+  Translate your 68k-assembler library startup-codes easily
+  to C by simply using this source-code as an advice how to do it.
+
+  For testing: install the (re)compiled example.library to LIBS: and
+  start the test program - it should pop up a requester, then.
+
+  If you can submit adjustments for the other compilers as mentioned
+  above: feel free to send these.
+  ---
+  Feel free to use this source for own projects.
+
+  It is allowed to be spread and distributed anywhere, as far
+  as my consent is concerned.
+
+  Amiga International, or the current owner of the technologie,
+  is allowed to always put this source on their newest
+  Developer CD-ROM.
+
+  Any form of credits will be greatly appreciated.
+
+  ** General PerSuaSiVe SoftWorX WWW Support Site is http://www.ar-kleinert.de **
+   _________________________________________________________
+  |      You may reach me the following way.                |
+  |    Send bug-reports, money or whatever to:              |
+  |---------------------------------------------------------|
+  |        * SuperView Development & Registration *         |
+  |          * DRAFU Development & Registration *           |
+  |       * Image Engineer Registration Site Europe *       |
+  |                                                         |
+  |                                                         |
+  |                  PerSuaSiVe SoftWorX                    |
+  |                                                         |
+  |                  Andreas R. Kleinert                    |
+  |                  Am Kornberg 48                         |
+  |                  D-57076 Siegen                         |
+  |                  Germany, Europe                        |
+  |                                                         |
+  |                  +49-271-22869                          |
+  |                  (also FAX + AM)                        |
+  |                                                         |
+  |                  Weekdays after 18.00h.                 |
+  |                                                         |
+  |         When calling via phone you may leave a message, |
+  |         if I'm not available - but don't expect me      |
+  |         calling back to USA, Australia, ... since       |
+  |         german phone rates are HIGHLY expensive.        |
+  |_________________________________________________________|
+
+  EMail:
+
+        Please ask before sending binaries!
+        And please think twice before asking - my postbox
+        is not unlimited in size.
+
+        * Do not send binaries via Fido or Fido-Gates ! *
+
+           - Fido   Andreas Kleinert 2:2457/350.18
+           - Usenet
+              >>>   info@ar-kleinert.de
+                    Andreas_Kleinert@gmx.de
+                    ARK@News.wwbnet.de
+
+           - If nothing else works, try one of these public
+             Fido-Usenet gateways:
+
+               In Germany:
+                 Andreas_Kleinert@p18.f350.n2457.z2.fido.sub.org
+
+               From USA or elsewhere:
+                 Andreas_Kleinert@p18.f350.n2457.z2.fidonet.org
+
+
+ History:
+
+ V37.34 (22.04.00): - bumped date, updated contact information,
+                      added early MorphOS comments
+
+ V37.33 (14.03.99): - added revised StormC project file by
+                      Fredrik Rambris <fredrik.rambris@amiga.nu>
+                    - small changes to the docs
+
+ V37.32 (02.03.99): - finally fixed version problem by adding
+                      additional $VER string
+                    - updated docs and email addresses
+
+ V37.31 (18.03.98): - changed SEGLISTPTR type definition for VBCC
+                      (-> Patrick Burnand)
+                    - fixed some typos and improved style in several
+                      source modules and headers
+
+ V37.30 (07.03.98): - added DICE support, done by Patrick Burnand
+                      <pburnand@hotmail.com>
+                      He modified LibInit.c and StartUp.c to avoid a possible
+                      bug in DICE.  The 'extern' keyword might not always be
+                      supported well.  (extern struct ExampleBase*...)
+                    - added some typecasts to InitTable definition
+                      (so that the other compilers can't complain about the
+                       changes done for DICE)
+                    - simplified sample program
+                    - again fixed type definition of "seglist" pointer;
+                      it's now a global typedef-inition/#define in compiler.h
+                      (SEGLISTPTR) so everyone should be happy again
+                      (-> Sven Drieling)
+
+ V37.22 (29.12.97): - fixed TestExampleLib.c
+                      (-> Stephan Rupprecht)
+                    - updated Stephan's email address
+                      (now is: stephan.rupprecht@metronet.de)
+                    - renamed "c_lib" directory and "ReadMe_First"
+                      to CLib37x#?
+
+ V37.21 (19.12.97): - adjusted "compiler.h" as suggested by Volker Barthelmann
+                      (VBCC), done by Patrizio Biancalani
+                    - updated Patrizio's email address (-> ReadMe.VBCC)
+                    - fixed my email, too (how did that COB.wwbnet.de make
+                      it into this readme again ?)
+                    - "compiler.h" now protected from multiple #inclusion
+
+ V37.20 (02.12.97): - added VBCC support, done by Patrizio Biancalani
+                      <P.Biancalani@agora.stm.it>
+
+ V37.17 (24.10.97): - updated "ReadMe_MAXON" and added a bug-description
+                      (plus workaround) as supplied by Stephan Rupprecht
+                      <Rupprecht_Verwertung@t-online.de>
+                      [ 29/12/97: stephan.rupprecht@metronet.de ]
+
+ V37.16 (23.8.97) : - V37.15 - frozen AROS spin-off
+                    - AROS-Version now included with AROS package, separately
+                    - added comments about Forbid/Permit/Wait/single-threading
+                      to the Library access functions
+                    - also commented the rest a little bit
+                      (-> maybe some certain people from comp.sys.amiga.programmer
+                          now feel better - but then again... maybe not ;)
+
+ V37.14 (13.8.97) : - AROS: - the LH1_ to LH2_ macro replacements in
+                              "compiler.h" had been wrongly defined
+                            - "BPTR" type only was available under AROS,
+                              now using "struct SegList *"
+                            - AROS version now does compile under AmigaOS
+                              with SAS/C 6.58, too
+                    - "APTR seglist" now "struct SegList *"
+
+ V37.13 (19.7.97) : - GNU makefile had lost its TABs
+                      (-> Gunter Nikl)
+
+ V37.12 (29.6.97) : - fixed memory bug-fix (argh)
+                      (-> Gunter Nikl)
+                    - changed/applied GCC adjustments
+                      (-> diffs by Gunter Nikl)
+
+ V37.11 (24.6.97) : - added "known bugs" section
+                    - LibInit now delocates library base on error
+                      (NULL return)
+                      (-> Gunter Nikl)
+                    - added AROS version, and created an additional
+                      source tree for it, since I did not get it compiled
+                      with SAS/C 6.57 and there's perhaps additional
+                      #ifdef stuf to be done. Anyone likes to merge these ?
+                      (-> Aaron Digulla)
+
+ V37.10 (6.4.97) :  - added GCC version by Stefan Fuchs, snfuchs@sokrates.franken.de.
+                      Thanks !
+                    - some small changes to docs, includes and comments
+                    - still missing: DICE, Aztec, vbcc. Who does it ?
+                    - fixed ftn email address
+
+ V37.6 (27.3.97) :  - finetuning
+
+ V37.5 (24.1.97) :  - rewrote docs
+                    - added basic support for compiler independent
+                      register naming and SAS/C keyword replacements
+                      (compiler.h). Thus sources now should be easily
+                      adaptable for GCC as well.
+
+ V37.4 (8.1.97) :   - added FD file
+                    - added new pragma file (and dir) as
+                      include/pragma/example_lib.h
+                      which works with Aztec, Maxon, Storm,
+                      DICE and SAS C compilers.
+                      Thanks to fd2pragma and Dirk Stoecker.
+                    - some fixes to the readme files
+                    - updated eMail list
+
+ V37.3 (3.1.97) :   - slightly changed SCOPTIONS
+                    - fixed some style things (APTR and library casts)
+                    - changed note about library opening at L_OpenLibs()
+                    - now compileable with StormC 2.0 as well
+                      (not tested with 1.1) - see readme file for StormC
+                    - added project file for StormC 2.0, smakefile still
+                      present - select, which one you'd like to use
+
+ V37.2 (12.12.96) : - applied some more changes and fixes
+                      (-> suggested by Helmut Hummel)
+                    - added icons
+                      (-> from Helmut Hummel)
+
+ V37.1 (4.12.96) : - bumped version to V37
+                   - added MaxonC 3.x version by applying changes
+                     to the SAS/C sources and adding Maxon
+                     specific make and configuration files
+                     (-> all done by Helmut Hummel, see Readme.MAXON)
+                   - added StormC support
+                   - yet missing: DICE, Aztec, GNU. Who does it ?
+
+ V1.4 (30.11.96) : - added SAS/C specific Ctrl-C disabling code
+                   - made some workarounds compiler sensitive
+                   - redone all with SAS/C V6.57
+                   - 944 Bytes ;-)
+
+ V1.3 (13.9.96) :  - when starting lib as executable, -1 must be returned
+                   - now caching SysBase
+                   - added some comments, where changes should not
+                     be applied
+                   - added note about sharing library bases
+                   - documented and modified sample function,
+                     so that correct a0/a1/d0/d1 and a6 usage becomes
+                     more obviously and verbose
+                   - still 940 bytes ;-)
+
+ V1.2 (5.9.96)  :  - fixed some things resulting out of a
+                     discussion in Z-Netz
+
+ V1.1 (1.9.96)  :  - small changes in style
+                     (only bumped versions of changed modules):
+                       o moved "examplebase.h" to include/example/
+                         (so also adjusted LibInit.c, StartUp.c
+                          and SCOPTIONS for reflecting that)
+                       o SampleFuncs.h did contain wrong prototype
+                         (did not matter, since only used for
+                          ULONG function table within StartUp.c)
+                       o explicitely __aligned ROMTag structure
+
+ V1.0 (14.8.96) : - first release
+
+
+ ---
+ All mentioned trademarks are subject to their owners.
